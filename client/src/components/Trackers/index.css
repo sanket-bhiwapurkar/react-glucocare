@@ -1,0 +1,75 @@
+.trackers-body {
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+.glucose-level-tracker {
+  box-shadow: 0px 4px 16px 4px #bfbfbf;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.tracker-heading {
+  font-size: 20px;
+  font-family: "Roboto";
+  color: #005c48;
+}
+.chart-container {
+  overflow-x: auto;
+}
+.chart {
+  width: 100%;
+}
+.chart-font {
+  font-size: 12px;
+}
+.before-meal-ref {
+  color: #8884d8;
+}
+.after-meal-ref {
+  color: #fc7830;
+}
+.green-text,
+.yellow-text,
+.orange-text,
+.red-text {
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 500;
+}
+.green-text {
+  color: #51ff00;
+}
+.yellow-text {
+  color: yellow;
+}
+.orange-text {
+  color: orange;
+}
+.red-text {
+  color: red;
+}
+
+.ruler {
+  width: 100%;
+  height: 1px;
+  background-color: #bebebe;
+  border: 0px;
+}
+.tracker-show-toggle-btn {
+  background-color: transparent;
+  outline: none;
+  border: 2px solid #0071bc;
+  font-family: "Roboto";
+  font-weight: bold;
+  color: #0071bc;
+  padding: 4px 8px;
+  margin-left: auto;
+}
+.glucose-level-list {
+  list-style-type: none;
+  margin: 16px 0px;
+  padding: 0px;
+}

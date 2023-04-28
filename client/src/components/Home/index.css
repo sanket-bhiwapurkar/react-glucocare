@@ -1,0 +1,78 @@
+.home-image {
+  width: 100%;
+}
+.home-body {
+  padding: 16px;
+}
+.add-medicine-reminder-container,
+.add-glucose-level-container,
+.add-appointment-reminder-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  border: 1px solid #ff0a00;
+  background-color: #ffeae9;
+  border-radius: 8px;
+  padding: 12px;
+  font-family: "Roboto";
+}
+.add-glucose-level-container {
+  border: 1px solid #005c48;
+  background-color: #ddfff8;
+}
+.add-appointment-reminder-container {
+  border: 1px solid #002b5c;
+  background-color: #bcdbff;
+}
+.add-medicine-icon-container,
+.add-glucose-icon-container,
+.add-appointment-icon-container {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff8b87;
+  flex-shrink: 0;
+}
+.add-glucose-icon-container {
+  background-color: #3eb99f;
+}
+.add-appointment-icon-container {
+  background-color: #4a95eb;
+}
+.add-medicine-reminder-title,
+.add-glucose-level-title,
+.add-appointment-title {
+  margin: 0px 12px;
+  font-weight: 500;
+  color: #ff0a00;
+}
+.add-glucose-level-title {
+  color: #005c48;
+}
+.add-appointment-title {
+  color: #002b5c;
+}
+.add-medicine-reminder-button,
+.add-glucose-level-button,
+.add-appointment-button {
+  background-color: #ff8b87;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-left: auto;
+}
+.add-glucose-level-button {
+  background-color: #3eb99f;
+}
+.add-appointment-button {
+  background-color: #4a95eb;
+}
+.home-links {
+  text-decoration: none;
+  color: inherit;
+}

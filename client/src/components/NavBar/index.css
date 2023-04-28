@@ -1,0 +1,91 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f5f7fa;
+  padding: 16px;
+}
+@media screen and (min-width: 768px) {
+  .navbar {
+    padding: 16px 100px;
+  }
+}
+.link {
+  text-decoration: none;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo {
+  width: 40px;
+}
+
+.logo-heading {
+  margin: 0px;
+  margin-left: 6px;
+  font-family: "Roboto";
+  font-size: 26px;
+  color: #0171bc;
+}
+.menu-list {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+.menu-item {
+  display: none;
+  margin-left: 30px;
+}
+.notification-menu-item {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+.hamburger-menu-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e3e6e9;
+}
+.show-menu {
+  display: flex;
+}
+.hide-menu {
+  display: none;
+}
+.hamburger-menu-item {
+  margin: 0px 8px;
+}
+.link {
+  text-decoration: none;
+  color: #64748b;
+}
+@media screen and (min-width: 768px) {
+  .hamburger-menu-item {
+    display: none;
+  }
+  .menu-item {
+    display: flex;
+  }
+}
+.menu-btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.logout-btn {
+  width: 73px;
+  height: 32px;
+  font-family: "Inter", sans-serif;
+  background-color: #0284c7;
+  border-radius: 4px;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}

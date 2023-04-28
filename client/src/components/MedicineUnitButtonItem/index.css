@@ -1,0 +1,18 @@
+.unit-btn {
+  margin: 6px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ff0a00;
+  color: #ff0a00;
+  background-color: #ffffff;
+  border-radius: 6px;
+  font-family: "Roboto";
+  font-weight: 600;
+}
+.unit-btn-active {
+  background-color: #ff0a00;
+  color: #ffffff;
+}

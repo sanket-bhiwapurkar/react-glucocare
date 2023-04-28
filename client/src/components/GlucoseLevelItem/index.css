@@ -1,0 +1,44 @@
+.glucose-level-ltem {
+  display: flex;
+  align-items: center;
+  background-color: #ddfff8;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  padding: 16px;
+}
+.glucose-level-text-container {
+  padding: 0px 16px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.glucose-level-text-items {
+  display: flex;
+  align-items: center;
+}
+.glucose-level-text-heading {
+  font-family: sans-serif;
+  font-weight: normal;
+  color: #005c48;
+  font-size: 14px;
+  margin: 0px 6px 0px 0px;
+}
+.spacing {
+  margin-bottom: 6px;
+}
+.glucose-level-text {
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #005c48;
+  font-size: 14px;
+  margin: 0px;
+  margin-right: 6px;
+}
+.glucose-level-delete-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  margin: 12px;
+  margin-left: auto;
+}

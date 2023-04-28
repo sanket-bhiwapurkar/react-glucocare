@@ -1,0 +1,40 @@
+.medicine-reminder-item {
+  display: flex;
+  align-items: center;
+  font-family: "Roboto";
+  border: solid #ff8b87;
+  border-width: 1px 1px 1px 6px;
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 16px;
+}
+.reminder-text {
+  padding: 0px 16px;
+}
+.reminder-heading,
+.remainder-time {
+  margin: 3px 0px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ff0a00;
+}
+
+.remainder-time {
+  font-weight: normal;
+  font-size: 13px;
+  color: #000000;
+}
+
+.medicine-type-container {
+  display: flex;
+  align-items: center;
+  color: #ff0a00;
+}
+
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-left: auto;
+}

@@ -1,0 +1,29 @@
+.reminders-body {
+  padding: 16px;
+}
+.medicines-reminders-container {
+  padding: 16px;
+  box-shadow: 0px 4px 16px 0px #bfbfbf;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.medicines-reminders-list {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+}
+.delete-checked-btn {
+  align-self: flex-end;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: "Roboto";
+  color: #0059ff;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
