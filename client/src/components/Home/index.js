@@ -8,9 +8,7 @@ import NavBar from "../NavBar";
 const Home = () => (
   <div>
     <NavBar />
-    <div className="home-image">
-      <img src="" alt="home" className="home-image" />
-    </div>
+    <div className="home-image" />
     <div className="home-body">
       <Link to="/add-medicine-reminder" className="home-links">
         <div className="add-medicine-reminder-container">
