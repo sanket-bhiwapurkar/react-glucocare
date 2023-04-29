@@ -2,16 +2,29 @@ import "./index.css";
 import { Component } from "react";
 import Cookies from "js-cookie";
 import NavBar from "../NavBar";
+import LoaderItem from "../LoaderItem";
 import MedicineReminderItem from "../MedicineReminderItem";
+import EmptyView from "../EmptyView";
+
+const apiStatusOptions = {
+  initial: "INITIAL",
+  isLoading: "LOADING",
+  success: "SUCCESS",
+  failure: "FAILURE",
+};
 
 class Reminders extends Component {
-  state = { medicineRemindersList: [] };
+  state = {
+    remindersApiStatus: apiStatusOptions.initial,
+    medicineRemindersList: [],
+  };
 
   componentDidMount() {
     this.getMedicineRemindersList();
   }
 
   getMedicineRemindersList = async () => {
+    this.setState({ remindersApiStatus: apiStatusOptions.isLoading });
     const jwtToken = Cookies.get("jwt_token");
     const url = "/reminders";
     const options = {
@@ -34,7 +47,12 @@ class Reminders extends Component {
         intakeTime: eachReminder.intake_time,
         checked: eachReminder.checked,
       }));
-      this.setState({ medicineRemindersList: formattedData });
+      this.setState({
+        remindersApiStatus: apiStatusOptions.success,
+        medicineRemindersList: formattedData,
+      });
+    } else {
+      this.setState({ remindersApiStatus: apiStatusOptions.failure });
     }
   };
 
@@ -52,13 +70,26 @@ class Reminders extends Component {
     this.getMedicineRemindersList();
   };
 
-  render() {
+  renderRemindersSwitch = () => {
+    const { remindersApiStatus } = this.state;
+    switch (remindersApiStatus) {
+      case apiStatusOptions.isLoading:
+        return <LoaderItem />;
+      case apiStatusOptions.success:
+        return this.renderMedicineReminders();
+      case apiStatusOptions.failure:
+        return <p>Something Went Wrong</p>;
+      default:
+        return null;
+    }
+  };
+
+  renderMedicineReminders = () => {
     const { medicineRemindersList } = this.state;
     return (
-      <div>
-        <NavBar />
-        <div className="reminders-body">
-          <div className="medicines-reminders-container">
+      <div className="medicines-reminders-container">
+        {medicineRemindersList.length > 0 ? (
+          <>
             <button
               type="button"
               className="delete-checked-btn"
@@ -75,8 +106,23 @@ class Reminders extends Component {
                 />
               ))}
             </ul>
-          </div>
-        </div>
+          </>
+        ) : (
+          <EmptyView
+            msg={
+              "No reminders yet. Please add new reminders to view them here."
+            }
+          />
+        )}
+      </div>
+    );
+  };
+
+  render() {
+    return (
+      <div>
+        <NavBar />
+        <div className="reminders-body">{this.renderRemindersSwitch()}</div>
       </div>
     );
   }

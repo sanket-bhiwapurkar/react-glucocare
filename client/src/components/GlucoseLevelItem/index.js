@@ -28,7 +28,7 @@ class GlucoseLevelItem extends Component {
     await fetch(url, options);
   };
 
-  deleteGlucoseLevel = async (id, getMedicineRemindersList) => {
+  deleteGlucoseLevel = async (id, getGlucoseLevelList) => {
     const jwtToken = Cookies.get("jwt_token");
     const url = `/trackers/glucose/${id}`;
     const options = {
@@ -39,12 +39,12 @@ class GlucoseLevelItem extends Component {
       },
     };
     await fetch(url, options);
-    getMedicineRemindersList();
+    await getGlucoseLevelList();
   };
 
   render() {
     const { isChecked } = this.state;
-    const { glucoseLevelDetails } = this.props;
+    const { glucoseLevelDetails, getGlucoseLevelList } = this.props;
     const { id, levelBeforeMeal, levelAfterMeal, date } = glucoseLevelDetails;
     return (
       <li className="glucose-level-ltem">
@@ -70,7 +70,7 @@ class GlucoseLevelItem extends Component {
         <button
           type="button"
           className="glucose-level-delete-btn"
-          onClick={() => this.deleteGlucoseLevel(id)}
+          onClick={() => this.deleteGlucoseLevel(id, getGlucoseLevelList)}
         >
           <RiDeleteBin6Line size={20} />
         </button>

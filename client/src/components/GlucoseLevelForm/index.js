@@ -46,7 +46,9 @@ class GlucoseLevelForm extends Component {
 
     const response = await fetch(url, options);
     if (response.ok === true) {
-      alert("Done");
+      alert("New Glucose Level Added");
+      const { history } = this.props;
+      history.replace("/trackers");
     } else {
       alert("Something went Wrong");
     }
@@ -60,7 +62,7 @@ class GlucoseLevelForm extends Component {
           <form className="glucose-form" onSubmit={this.onAddGlucoseLevelClick}>
             <h1 className="glucose-form-heading">New Glucose Level</h1>
             <label htmlFor="level-before-meal" className="glucose-form-label">
-              LEVEL BEFORE MEAL
+              LEVEL BEFORE MEAL MG/DL
             </label>
             <input
               id="level-before-meal"
@@ -70,7 +72,7 @@ class GlucoseLevelForm extends Component {
               onChange={this.onLevelBeforeMealChange}
             />
             <label htmlFor="level-after-meal" className="glucose-form-label">
-              LEVEL AFTER MEAL
+              LEVEL AFTER MEAL MG/DL
             </label>
             <input
               id="level-after-meal"

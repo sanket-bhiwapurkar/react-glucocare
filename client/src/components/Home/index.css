@@ -1,5 +1,14 @@
 .home-image {
   width: 100%;
+  background-image: url("https://wallpaperaccess.com/full/624111.jpg");
+  background-size: cover;
+  width: 100vw;
+  aspect-ratio: 16/9;
+}
+@media screen and (min-width: 768px) {
+  .home-image {
+    height: 50vh;
+  }
 }
 .home-body {
   padding: 16px;

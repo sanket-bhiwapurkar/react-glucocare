@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 
 const bodyParser = require("body-parser");
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 app.use(express.json());
 
 const path = require("path");
@@ -128,6 +128,7 @@ app.post(
         }
       }
     }
+    responseSender(response, 200, "Medicine Reminder Added");
   }
 );
 
@@ -138,6 +139,7 @@ app.get("/reminders/", authenticateToken, async (request, response) => {
     ORDER BY intake_time ASC
   `;
   const medicineReminders = await db.all(getMedicineRemindersQuery);
+  response.status(200);
   response.send(medicineReminders);
 });
 
@@ -153,6 +155,7 @@ app.put(
     SET checked = ${checked} WHERE id = '${id}';
   `;
     await db.run(updateReminderCheckedQuery);
+    responseSender(response, 200, "OK");
   }
 );
 
@@ -166,6 +169,7 @@ app.delete(
     DELETE FROM medicine_reminder_${request.username} WHERE id = '${id}';
   `;
     await db.run(deleteMedicineReminder);
+    responseSender(response, 200, "Reminder Deleted");
   }
 );
 //delete checked Medicine reminders API
@@ -177,6 +181,7 @@ app.delete(
   DELETE FROM medicine_reminder_${request.username} WHERE checked = TRUE;
   `;
     await db.run(deleteCheckedMedicineReminders);
+    responseSender(response, 200, "Reminders Deleted");
   }
 );
 //add Glucose Level API
@@ -199,6 +204,7 @@ app.post(
       );
     `;
     await db.run(addGlucoseLevelQuery);
+    responseSender(response, 200, "Glucose Level Added");
   }
 );
 //Get Glucose Levels
@@ -209,6 +215,7 @@ app.get("/trackers/glucose", authenticateToken, async (request, response) => {
   `;
   const GlucoseLevels = await db.all(getGlucoseLevelsQuery);
   response.send(GlucoseLevels);
+  response.status(200);
 });
 //Update Glucose Level checked API
 app.put(
@@ -222,6 +229,7 @@ app.put(
     SET checked = ${checked} WHERE id = '${id}';
   `;
     await db.run(updateReminderCheckedQuery);
+    responseSender(response, 200, "OK");
   }
 );
 //delete Glucose Level API
@@ -234,6 +242,7 @@ app.delete(
     DELETE FROM glucose_level_${request.username} WHERE id = '${id}';
   `;
     await db.run(deleteMedicineReminder);
+    responseSender(response, 200, "Levels Deleted");
   }
 );
 //delete checked Glucose Levels API
@@ -245,5 +254,6 @@ app.delete(
   DELETE FROM glucose_level_${request.username} WHERE checked = TRUE;
   `;
     await db.run(deleteCheckedMedicineReminders);
+    responseSender(response, 200, "Levels Deleted");
   }
 );

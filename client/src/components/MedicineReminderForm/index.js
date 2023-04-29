@@ -106,7 +106,9 @@ class MedicineReminderForm extends Component {
 
     const response = await fetch(url, options);
     if (response.ok === true) {
-      alert("Done");
+      alert("New Medicine Reminder Added");
+      const { history } = this.props;
+      history.push("/reminders");
     } else {
       alert("Something went Wrong");
     }

@@ -8,11 +8,9 @@ import NavBar from "../NavBar";
 const Home = () => (
   <div>
     <NavBar />
-    <img
-      src="https://wallpaperaccess.com/full/624111.jpg"
-      alt="home"
-      className="home-image"
-    />
+    <div className="home-image">
+      <img src="" alt="home" className="home-image" />
+    </div>
     <div className="home-body">
       <Link to="/add-medicine-reminder" className="home-links">
         <div className="add-medicine-reminder-container">

@@ -1,4 +1,5 @@
 import { Route, Switch } from "react-router-dom";
+import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import Reminders from "./components/Reminders";
@@ -11,15 +12,19 @@ function App() {
   return (
     <Switch>
       <Route exact path="/login" component={Login} />
-      <Route exact path="/" component={Home} />
-      <Route
+      <ProtectedRoute exact path="/" component={Home} />
+      <ProtectedRoute
         exact
         path="/add-medicine-reminder"
         component={MedicineReminderForm}
       />
-      <Route exact path="/add-glucose-level" component={GlucoseLevelForm} />
-      <Route exact path="/reminders" component={Reminders} />
-      <Route exact path="/trackers" component={Trackers} />
+      <ProtectedRoute
+        exact
+        path="/add-glucose-level"
+        component={GlucoseLevelForm}
+      />
+      <ProtectedRoute exact path="/reminders" component={Reminders} />
+      <ProtectedRoute exact path="/trackers" component={Trackers} />
     </Switch>
   );
 }
