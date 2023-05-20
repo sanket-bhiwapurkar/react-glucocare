@@ -62,7 +62,7 @@ The user can also track there glucose levels. This app display past records with
 
 ### Appointment Form
 
-![Appointment Form](<https://github.com/sanket-bhiwapurkar/react-glucocare/blob/main/client/screenshot/localhost_3000_(iPhone%20SE)%20(9).png)
+![Appointment Form](<https://github.com/sanket-bhiwapurkar/react-glucocare/blob/main/client/screenshot/localhost_3000_(iPhone%20SE)%20(9).png>)
 
 ### Reminders
 
