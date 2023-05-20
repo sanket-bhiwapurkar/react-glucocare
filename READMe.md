@@ -6,6 +6,11 @@ Agter setting reminders they can view after how much time they should take the n
 
 The user can also track there glucose levels. This app display past records with a line graph. also full history of glucose levels can be viewed.
 
+## Updates in previous version
+
+- Added relevent blogs slider in home page.
+- Added appointment reminder.
+
 ## App Technologies
 
 - HTML, CSS, JS, React.js, Node.js, express.js and SQLite.
@@ -22,8 +27,10 @@ The user can also track there glucose levels. This app display past records with
   - MedicineReminderForm
     - MedicineUnitButtonItem
   - GlucoseLevelForm
+  - AppointmentForm
   - Reminders
     - LoaderItem
+    - AppointmentItem
     - MedicineReminderItem
     - EmptyView
   - Trackers
@@ -52,6 +59,10 @@ The user can also track there glucose levels. This app display past records with
 ### Glucose Level Form
 
 ![Glucose Level Form](<https://github.com/sanket-bhiwapurkar/react-glucocare/blob/main/client/screenshot/localhost_3000_login(iPhone%20SE)%20(4).png>)
+
+### Appointment Form
+
+![Appointment Form](<https://github.com/sanket-bhiwapurkar/react-glucocare/blob/main/client/screenshot/localhost_3000_login(iPhone%20SE)%20(9).png>)
 
 ### Reminders
 
