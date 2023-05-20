@@ -46,11 +46,11 @@ The user can also track there glucose levels. This app display past records with
 
 ### Home
 
-![Home](<https://github.com/sanket-bhiwapurkar/react-glucocare/blob/main/client/screenshot/localhost_3000_login(iPhone%20SE)%20(1).png>)
+![Home](<https://github.com/sanket-bhiwapurkar/react-glucocare/blob/main/client/screenshot/localhost_3000_(iPhone%20SE)%20(1).png>)
 
 ### Hamburger Menu
 
-![Hamburger Menu](<https://github.com/sanket-bhiwapurkar/react-glucocare/blob/main/client/screenshot/localhost_3000_login(iPhone%20SE)%20(2).png>)
+![Hamburger Menu](<https://github.com/sanket-bhiwapurkar/react-glucocare/blob/main/client/screenshot/localhost_3000_(iPhone%20SE)%20(2).png>)
 
 ### Medicine Reminder Form
 
@@ -62,11 +62,11 @@ The user can also track there glucose levels. This app display past records with
 
 ### Appointment Form
 
-![Appointment Form](<https://github.com/sanket-bhiwapurkar/react-glucocare/blob/main/client/screenshot/localhost_3000_login(iPhone%20SE)%20(9).png>)
+![Appointment Form](<https://github.com/sanket-bhiwapurkar/react-glucocare/blob/main/client/screenshot/localhost_3000_(iPhone%20SE)%20(9).png)
 
 ### Reminders
 
-![Reminders](<https://github.com/sanket-bhiwapurkar/react-glucocare/blob/main/client/screenshot/localhost_3000_login(iPhone%20SE)%20(5).png>)
+![Reminders](<https://github.com/sanket-bhiwapurkar/react-glucocare/blob/main/client/screenshot/localhost_3000_(iPhone%20SE)%20(5).png>)
 
 ### Trackers
 
