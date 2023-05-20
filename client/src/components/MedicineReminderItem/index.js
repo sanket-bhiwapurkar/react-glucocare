@@ -1,6 +1,7 @@
 import "./index.css";
 import { Component } from "react";
-import { formatDistanceToNow } from "date-fns";
+import { format, formatDistanceToNow } from "date-fns";
+import { BsCalendar3 } from "react-icons/bs";
 import { CiTablets1 } from "react-icons/ci";
 import { RiSyringeLine } from "react-icons/ri";
 import { GiPill } from "react-icons/gi";
@@ -32,7 +33,7 @@ class MedicineReminderItem extends Component {
     await fetch(url, options);
   };
 
-  deleteReminder = async (id, getMedicineRemindersList) => {
+  deleteReminder = async (id, getRemindersList) => {
     const jwtToken = Cookies.get("jwt_token");
     const url = `/reminders/medicine/${id}`;
     const options = {
@@ -43,7 +44,7 @@ class MedicineReminderItem extends Component {
       },
     };
     await fetch(url, options);
-    getMedicineRemindersList();
+    getRemindersList();
   };
 
   renderMedicineType = (medicineType) => {
@@ -63,10 +64,11 @@ class MedicineReminderItem extends Component {
   };
 
   render() {
-    const { reminderDetails, getMedicineRemindersList } = this.props;
+    const { reminderDetails, getRemindersList } = this.props;
     const { isChecked } = this.state;
     const { id, medicineName, medicineType, units, unitsType, intakeTime } =
       reminderDetails;
+    const formattedDatetime = format(new Date(intakeTime), "MMM d hh:mm a");
     const greaterDate = new Date(intakeTime);
     const now = new Date();
     const remainingTime =
@@ -88,6 +90,9 @@ class MedicineReminderItem extends Component {
             </p>
             {this.renderMedicineType(medicineType)}
           </div>
+          <h1 className="reminder-heading datetime">
+            <BsCalendar3 size={13} /> {formattedDatetime}
+          </h1>
           <p className="remainder-time">
             Please take your next Dose {remainingTime}
           </p>
@@ -95,9 +100,9 @@ class MedicineReminderItem extends Component {
         <button
           type="button"
           className="delete-btn"
-          onClick={() => this.deleteReminder(id, getMedicineRemindersList)}
+          onClick={() => this.deleteReminder(id, getRemindersList)}
         >
-          <RiDeleteBin6Line size={20} />
+          <RiDeleteBin6Line size={20} color={"#ff0a00"} />
         </button>
       </li>
     );

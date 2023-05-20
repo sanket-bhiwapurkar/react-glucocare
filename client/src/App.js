@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Reminders from "./components/Reminders";
 import MedicineReminderForm from "./components/MedicineReminderForm";
 import GlucoseLevelForm from "./components/GlucoseLevelForm";
+import AppointmentForm from "./components/AppointmentForm";
 import Trackers from "./components/Trackers";
 import "./App.css";
 
@@ -23,6 +24,12 @@ function App() {
         path="/add-glucose-level"
         component={GlucoseLevelForm}
       />
+      <ProtectedRoute
+        exact
+        path="/add-appointment"
+        component={AppointmentForm}
+      />
+      s
       <ProtectedRoute exact path="/reminders" component={Reminders} />
       <ProtectedRoute exact path="/trackers" component={Trackers} />
     </Switch>

@@ -1,13 +1,56 @@
-.home-image {
+.slider-container {
+  width: 90%;
+  margin: 0px auto;
+  margin-bottom: 16px;
+}
+.slider-list {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+.slider-item-container {
   width: 100%;
-  background-image: url("https://wallpaperaccess.com/full/624111.jpg");
-  background-size: cover;
-  width: 100vw;
   aspect-ratio: 16/9;
+  overflow-y: hidden;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: #a7ec3a !important;
+}
+.link-img-container {
+  position: relative;
+  z-index: 1;
+}
+.slider-img {
+  width: 100%;
+  bottom: 0px;
 }
 @media screen and (min-width: 768px) {
-  .home-image {
-    height: 50vh;
+  .slider-item-container {
+    aspect-ratio: 16/7;
+    overflow-y: hidden;
+  }
+  .slider-img {
+    width: 100%;
+  }
+}
+.slider-title-container {
+  position: fixed;
+  width: 86vw;
+  z-index: 2;
+  padding: 12px;
+  background-color: #00000033;
+}
+.slider-title {
+  display: inline;
+  font-family: "Roboto";
+  font-size: 14px;
+  color: #ffffff;
+  margin-right: 3px;
+}
+@media screen and (min-width: 768px) {
+  .slider-title {
+    font-size: 22px;
   }
 }
 .home-body {
@@ -66,7 +109,7 @@
 }
 .add-medicine-reminder-button,
 .add-glucose-level-button,
-.add-appointment-button {
+.add-new-appointment-button {
   background-color: #ff8b87;
   padding: 6px 12px;
   border-radius: 4px;
@@ -78,7 +121,7 @@
 .add-glucose-level-button {
   background-color: #3eb99f;
 }
-.add-appointment-button {
+.add-new-appointment-button {
   background-color: #4a95eb;
 }
 .home-links {

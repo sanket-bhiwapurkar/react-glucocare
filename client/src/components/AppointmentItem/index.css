@@ -1,37 +1,32 @@
-.medicine-reminder-item {
+.appointment-reminder-item {
   display: flex;
   align-items: center;
   font-family: "Roboto";
-  border: solid #ff8b87;
+  border: solid #bcdbff;
   border-width: 1px 1px 1px 6px;
   border-radius: 12px;
   padding: 4px;
   margin-bottom: 16px;
 }
-.reminder-text {
+.appointment-text {
   padding: 0px 16px;
 }
-.reminder-heading,
-.remainder-time {
+.appointment-heading,
+.appointment-time {
   margin: 3px 0px;
   font-size: 14px;
   font-weight: 500;
-  color: #ff0a00;
+  color: #4a95eb;
 }
 .datetime {
   font-weight: normal;
   font-style: italic;
 }
 
-.remainder-time {
+.appointment-time {
   font-weight: normal;
   font-size: 13px;
-}
-
-.medicine-type-container {
-  display: flex;
-  align-items: center;
-  color: #ff0a00;
+  color: #4a95eb;
 }
 
 .delete-btn {

@@ -132,16 +132,41 @@ app.post(
   }
 );
 
-//Get Medicines Reminders API
+//Get Reminders API
 app.get("/reminders/", authenticateToken, async (request, response) => {
   const getMedicineRemindersQuery = `
     SELECT * FROM medicine_reminder_${request.username} 
     ORDER BY intake_time ASC
   `;
   const medicineReminders = await db.all(getMedicineRemindersQuery);
+
+  const now = format(new Date(), "yyyy-MM-dd HH:mm");
+  const add15Days = format(addDays(new Date(), 15), "yyyy-MM-dd HH:mm");
+  const getAppointmentsQuery = `
+    SELECT * FROM appointments_${request.username}
+    ORDER BY date ASC
+    LIMIT 4;
+  `;
+  const appointments = await db.all(getAppointmentsQuery);
   response.status(200);
-  response.send(medicineReminders);
+  response.send({ medicineReminders, appointments });
 });
+
+//Update Appointment checked API
+app.put(
+  "/reminders/appointment/:id/",
+  authenticateToken,
+  async (request, response) => {
+    const { checked } = request.body;
+    const { id } = request.params;
+    const updateAppointmentCheckedQuery = `
+    UPDATE appointments_${request.username}
+    SET checked = ${checked} WHERE id = '${id}';
+  `;
+    await db.run(updateAppointmentCheckedQuery);
+    responseSender(response, 200, "OK");
+  }
+);
 
 //Update Medicine Reminder checked API
 app.put(
@@ -159,6 +184,20 @@ app.put(
   }
 );
 
+//delete Appointment API
+app.delete(
+  "/reminders/appointment/:id/",
+  authenticateToken,
+  async (request, response) => {
+    const { id } = request.params;
+    const deleteAppointment = `
+    DELETE FROM appointments_${request.username} WHERE id = '${id}';
+  `;
+    await db.run(deleteAppointment);
+    responseSender(response, 200, "Reminder Deleted");
+  }
+);
+
 //delete Medicine Reminder API
 app.delete(
   "/reminders/medicine/:id/",
@@ -172,6 +211,20 @@ app.delete(
     responseSender(response, 200, "Reminder Deleted");
   }
 );
+
+//delete checked Appointments API
+app.delete(
+  "/reminders/appointments",
+  authenticateToken,
+  async (request, response) => {
+    const deleteCheckedAppointments = `
+  DELETE FROM appointments_${request.username} WHERE checked = TRUE;
+  `;
+    await db.run(deleteCheckedAppointments);
+    responseSender(response, 200, "Reminders Deleted");
+  }
+);
+
 //delete checked Medicine reminders API
 app.delete(
   "/reminders/medicine",
@@ -257,3 +310,31 @@ app.delete(
     responseSender(response, 200, "Levels Deleted");
   }
 );
+
+//Add Appointment API
+app.post("/add-appointment/", authenticateToken, async (request, response) => {
+  const {
+    appointmentWith,
+    appointmentVenue,
+    appointmentDate,
+    appointmentTime,
+    checked,
+  } = request.body;
+  const dateString = `${appointmentDate} ${appointmentTime}`;
+  const date = format(new Date(dateString), "yyyy-MM-dd HH:mm");
+  const id = uuidv4();
+  const addAppointmentQuery = `
+          INSERT INTO
+          appointments_${request.username}
+          (id, appointment_with, appointment_venue, date, checked)
+          VALUES (
+            '${id}',
+            '${appointmentWith}',
+            '${appointmentVenue}',
+            '${date}',
+            ${checked}
+          );
+        `;
+  await db.run(addAppointmentQuery);
+  responseSender(response, 200, "Medicine Reminder Added");
+});
